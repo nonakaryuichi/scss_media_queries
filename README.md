@@ -3,6 +3,8 @@ SCSS Media Queries Mixins
 SCSS用に作られたMedia Queriesを記述するためのMixinです。  
 このMixinを利用するにはSass ver.3.2以上が必要です。
 
+http://sass-lang.com/
+
 読み込み方法
 --------------------------------------------------
 出力用のscssファイルにインポートします。
@@ -107,3 +109,15 @@ mixinは@includeで呼び出します。このmixinは宣言ブロック内で�
 ----------------------------------------------------
 * http://dev.classmethod.jp/
 * http://design.classmethod.jp/
+
+ライセンス
+----------------------------------------------------
+SCSS Media Queries Mixins
+ 
+Aauthor   : Ryuichi Nonaka  
+Version   : 1.0  
+Copyright : 2012 Ryuichi Nonaka  
+Date      : 2012/09/11  
+
+Released under the MIT license
+
