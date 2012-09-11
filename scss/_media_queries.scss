@@ -1,0 +1,272 @@
+/* ************************************
+ *
+ * SCSS Media Queries Mixins
+ * 
+ * Aauthor   : Ryuichi Nonaka
+ * Version   : 1.0
+ * Copyright : 2012 Ryuichi Nonaka
+ * Date      : 2012/09/11
+ *
+ * Released under the MIT license
+ *
+ *********************************** */
+
+/* ************************************
+ *
+ * Device Width 
+ * Initialize variables
+ *
+ *********************************** */
+$MQ_OLD_MOBILE_PORTRAIT         :   320px !default;
+$MQ_OLD_MOBILE_LANDSCAPE        :   480px !default;
+
+$MQ_MODERN_MOBILE_PORTRAIT      :   320px !default; // 640 resolution.
+$MQ_MODERN_MOBILE_LANDSCAPE     :   480px !default; // 960 resolution.
+
+$MQ_FUTURE_MOBILE_PORTRAIT      :   640px !default; // new iPhone(5?).
+$MQ_FUTURE_MOBILE_LANDSCAPE     :  1136px !default; // new iPhone(5?).
+
+$MQ_OLD_TABLET_PORTRAIT         :   768px !default; // 1 or 2.
+$MQ_OLD_TABLET_LANDSCAPE        :  1024px !default; // 1 or 2.
+
+$MQ_MODERN_TABLET_PORTRAIT      :   768px !default; // new iPad: 1,536 resolution.
+$MQ_MODERN_TABLET_LANDSCAPE     :  1024px !default; // new iPad: 2,048 resolution.
+
+$MQ_DESCTOP_NARROW              :  1024px !default;
+$MQ_DESCTOP_MODERN              :  1280px !default;
+$MQ_DESCTOP_WIDE                :  1600px !default;
+$MQ_DESCTOP_HD                  :  1920px !default;
+
+
+/* ************************************
+ *
+ * Browser Prefix 
+ * Initialize variables
+ *
+ *********************************** */
+$MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
+
+
+/* ************************************
+ *
+ * Mobile Device mixin
+ * @param $orientation Direction of a device
+ * @param $version [old|modern|any] The version of a device
+ *
+ * old    : iPhone 3G or 3GS.
+ * modern : iPhone 4 or 4S.
+ * any    : All version.
+ *
+ *********************************** */
+@mixin mq-mobile ( $orientation: portrait, $version: old ) {
+        @each $prefix in $MQ_PREFIX_TYPES
+        {
+                @if $version == old {
+                        @if $orientation == portrait {
+                                @media screen 
+                                        and ( min-width: 0 )
+                                        and ( max-width: $MQ_OLD_MOBILE_PORTRAIT )
+                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                {
+                                        @content;
+                                }
+                        } @else if $orientation == landscape {
+                                @media screen
+                                        and ( min-width: $MQ_OLD_MOBILE_PORTRAIT + 1 )
+                                        and ( max-width: $MQ_OLD_MOBILE_LANDSCAPE )
+                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                {
+                                        @content;
+                                }
+                        }
+                } @else if $version == modern {
+                        @if $orientation == portrait {
+                                @media screen
+                                        and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
+                                        and ( max-width: $MQ_MODERN_MOBILE_PORTRAIT )
+                                        and ( #{$prefix}min-device-pixel-ratio: 1.5 )
+                                {
+                                        @content;
+                                }
+                        } @else if $orientation == landscape {
+                                @media screen
+                                        and ( min-width: $MQ_MODERN_MOBILE_PORTRAIT + 1 )
+                                        and ( max-width: $MQ_MODERN_MOBILE_LANDSCAPE )
+                                        and ( #{$prefix}min-device-pixel-ratio: 1.5 )
+                                {
+                                        @content;
+                                }
+                        }
+                } @else if $version == any {
+                        @if $orientation == portrait {
+                                @media screen 
+                                        and ( min-width: 0 )
+                                        and ( max-width: $MQ_OLD_MOBILE_PORTRAIT )
+                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                {
+                                        @content;
+                                }
+                                @media screen
+                                        and ( min-width: 0 )
+                                        and ( max-width: $MQ_MODERN_MOBILE_PORTRAIT )
+                                        and ( #{$prefix}min-device-pixel-ratio: 1.5 )
+                                {
+                                        @content;
+                                }
+                        } @else if $orientation == landscape {
+                                @media screen
+                                        and ( min-width: $MQ_OLD_MOBILE_PORTRAIT + 1 )
+                                        and ( max-width: $MQ_OLD_MOBILE_LANDSCAPE )
+                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                {
+                                        @content;
+                                }
+                                @media screen
+                                        and ( min-width: $MQ_MODERN_MOBILE_PORTRAIT + 1 )
+                                        and ( max-width: $MQ_MODERN_MOBILE_LANDSCAPE )
+                                        and ( #{$prefix}min-device-pixel-ratio: 1.5 )
+                                {
+                                        @content;
+                                }
+                        }
+                }
+        }
+}
+
+
+/* ************************************
+ *
+ * Tablet Device mixin
+ * @param $orientation Direction of a device
+ * @param $version [old|modern|any] The version of a device
+ *
+ * old    : iPad 1 or 2.
+ * modern : new iPad.
+ * any    : All version.
+ *
+ *********************************** */
+@mixin mq-tablet ( $orientation: portrait, $version: old ) {
+        @each $prefix in $MQ_PREFIX_TYPES
+        {
+                @if $version == old {
+                        @if $orientation == portrait {
+                                @media screen 
+                                        and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
+                                        and ( max-width: $MQ_OLD_TABLET_PORTRAIT )
+                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                {
+                                        @content;
+                                }
+                        } @else if $orientation == landscape {
+                                @media screen
+                                        and ( min-width: $MQ_OLD_TABLET_PORTRAIT + 1 )
+                                        and ( max-width: $MQ_OLD_TABLET_LANDSCAPE )
+                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                {
+                                        @content;
+                                }
+                        }
+                } @else if $version == modern {
+                        @if $orientation == portrait {
+                                @media screen
+                                        and ( min-width: $MQ_OLD_TABLET_LANDSCAPE + 1 )
+                                        and ( max-width: $MQ_MODERN_TABLET_PORTRAIT )
+                                        and ( #{$prefix}device-pixel-ratio: 1.5 )
+                                {
+                                        @content;
+                                }
+                        } @else if $orientation == landscape {
+                                @media screen
+                                        and ( min-width: $MQ_MODERN_TABLET_PORTRAIT + 1 )
+                                        and ( max-width: $MQ_MODERN_TABLET_LANDSCAPE )
+                                        and ( #{$prefix}device-pixel-ratio: 1.5 )
+                                {
+                                        @content;
+                                }
+                        }
+                } @else if $version == any {
+                        @if $orientation == portrait {
+                                @media screen 
+                                        and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
+                                        and ( max-width: $MQ_OLD_TABLET_PORTRAIT )
+                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                {
+                                        @content;
+                                }
+                                @media screen
+                                        and ( min-width: $MQ_OLD_TABLET_LANDSCAPE + 1 )
+                                        and ( max-width: $MQ_MODERN_TABLET_PORTRAIT )
+                                        and ( #{$prefix}device-pixel-ratio: 1.5 )
+                                {
+                                        @content;
+                                }
+                        } @else if $orientation == landscape {
+                                @media screen
+                                        and ( min-width: $MQ_OLD_TABLET_PORTRAIT + 1 )
+                                        and ( max-width: $MQ_OLD_TABLET_LANDSCAPE )
+                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                {
+                                        @content;
+                                }
+                                @media screen
+                                        and ( min-width: $MQ_MODERN_TABLET_PORTRAIT + 1 )
+                                        and ( max-width: $MQ_MODERN_TABLET_LANDSCAPE )
+                                        and ( #{$prefix}device-pixel-ratio: 1.5 )
+                                {
+                                        @content;
+                                }
+                        }
+                }
+        }
+}
+
+
+/* ************************************
+ *
+ * Desctop Device mixin
+ * @param $size Direction of a device
+ *
+ * narrow  : max width 1024.
+ * modern  : max width 1280.
+ * wide    : max width 1600.
+ * hd      : max width 1920.
+ * over    : width 1920 over.
+ *
+ *********************************** */
+@mixin mq-desctop ( $size: narrow ) {
+        @if $size == narrow {
+                @media screen
+                        and ( min-width: $MQ_OLD_TABLET_LANDSCAPE )
+                        and ( max-width: $MQ_DESCTOP_NARROW )
+                {
+                        @content;
+                }
+        } @else if $size == modern {
+                @media screen
+                        and ( min-width: $MQ_DESCTOP_NARROW + 1 )
+                        and ( max-width: $MQ_DESCTOP_MODERN )
+                {
+                        @content;
+                }
+        } @else if $size == wide {
+                @media screen
+                        and ( min-width: $MQ_DESCTOP_MODERN + 1 )
+                        and ( max-width: $MQ_DESCTOP_WIDE )
+                {
+                        @content;
+                }
+        } @else if $size == hd {
+                @media screen
+                        and ( min-width: $MQ_DESCTOP_WIDE + 1 )
+                        and ( max-width: $MQ_DESCTOP_HD )
+                {
+                        @content;
+                }
+        } @else if $size == over {
+                @media screen
+                        and ( min-width: $MQ_DESCTOP_HD + 1 )
+                {
+                        @content;
+                }
+        }
+}
