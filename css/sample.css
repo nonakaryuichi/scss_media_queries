@@ -1,0 +1,343 @@
+/* *****************************
+ *
+ * html5doctor.com Reset Stylesheet
+ * v1.6.1
+ * Richard Clark - http://richclarkdesign.com
+ *
+ **************************** */
+/* line 8, ../scss/sample.scss */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+/* line 8, ../scss/sample.scss */
+body {
+  line-height: 1; }
+
+/* line 8, ../scss/sample.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+/* line 8, ../scss/sample.scss */
+nav ul {
+  list-style: none; }
+
+/* line 8, ../scss/sample.scss */
+blockquote, q {
+  quotes: none; }
+
+/* line 8, ../scss/sample.scss */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+/* line 8, ../scss/sample.scss */
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+/* line 8, ../scss/sample.scss */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none; }
+
+/* line 8, ../scss/sample.scss */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
+
+/* line 8, ../scss/sample.scss */
+del {
+  text-decoration: line-through; }
+
+/* line 8, ../scss/sample.scss */
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+/* line 8, ../scss/sample.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 8, ../scss/sample.scss */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0; }
+
+/* line 8, ../scss/sample.scss */
+input, select {
+  vertical-align: middle; }
+
+/* *****************************
+ *
+ * Import file to Scss or Sass.
+ *
+ **************************** */
+/* ************************************
+ *
+ * SCSS Media Queries Mixins
+ * 
+ * Aauthor   : Ryuichi Nonaka
+ * Version   : 1.0
+ * Copyright : 2012 Ryuichi Nonaka
+ * Date      : 2012/09/11
+ *
+ * Released under the MIT license
+ *
+ *********************************** */
+/* ************************************
+ *
+ * Device Width 
+ * Initialize variables
+ *
+ *********************************** */
+/* ************************************
+ *
+ * Browser Prefix 
+ * Initialize variables
+ *
+ *********************************** */
+/* ************************************
+ *
+ * Mobile Device mixin
+ * @param $orientation Direction of a device
+ * @param $version [old|modern|any] The version of a device
+ *
+ * old    : iPhone 3G or 3GS.
+ * modern : iPhone 4 or 4S.
+ * any    : All version.
+ *
+ *********************************** */
+/* ************************************
+ *
+ * Tablet Device mixin
+ * @param $orientation Direction of a device
+ * @param $version [old|modern|any] The version of a device
+ *
+ * old    : iPad 1 or 2.
+ * modern : new iPad.
+ * any    : All version.
+ *
+ *********************************** */
+/* ************************************
+ *
+ * Desctop Device mixin
+ * @param $size Direction of a device
+ *
+ * narrow  : max width 1024.
+ * modern  : max width 1280.
+ * wide    : max width 1600.
+ * hd      : max width 1920.
+ * over    : width 1920 over.
+ *
+ *********************************** */
+/* line 18, ../scss/sample.scss */
+html {
+  padding: 20%;
+  font-weight: bold;
+  background: #000; }
+  @media screen and (min-width: 0) and (max-width: 320px) and (-webkit-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #222; }
+      /* line 33, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'mobile portrait old'; } }
+  @media screen and (min-width: 0) and (max-width: 320px) and (-moz-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #222; }
+      /* line 33, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'mobile portrait old'; } }
+  @media screen and (min-width: 0) and (max-width: 320px) and (-ms-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #222; }
+      /* line 33, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'mobile portrait old'; } }
+  @media screen and (min-width: 0) and (max-width: 320px) and (-o-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #222; }
+      /* line 33, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'mobile portrait old'; } }
+  @media screen and (min-width: 0) and (max-width: 320px) and (device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #222; }
+      /* line 33, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'mobile portrait old'; } }
+  @media screen and (min-width: 321px) and (max-width: 480px) and (-webkit-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #444; }
+      /* line 42, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'mobile landscape old'; } }
+  @media screen and (min-width: 321px) and (max-width: 480px) and (-moz-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #444; }
+      /* line 42, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'mobile landscape old'; } }
+  @media screen and (min-width: 321px) and (max-width: 480px) and (-ms-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #444; }
+      /* line 42, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'mobile landscape old'; } }
+  @media screen and (min-width: 321px) and (max-width: 480px) and (-o-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #444; }
+      /* line 42, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'mobile landscape old'; } }
+  @media screen and (min-width: 321px) and (max-width: 480px) and (device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #444; }
+      /* line 42, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'mobile landscape old'; } }
+  @media screen and (min-width: 481px) and (max-width: 768px) and (-webkit-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #666; }
+      /* line 51, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'tablet portrait old'; } }
+  @media screen and (min-width: 481px) and (max-width: 768px) and (-moz-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #666; }
+      /* line 51, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'tablet portrait old'; } }
+  @media screen and (min-width: 481px) and (max-width: 768px) and (-ms-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #666; }
+      /* line 51, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'tablet portrait old'; } }
+  @media screen and (min-width: 481px) and (max-width: 768px) and (-o-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #666; }
+      /* line 51, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'tablet portrait old'; } }
+  @media screen and (min-width: 481px) and (max-width: 768px) and (device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #666; }
+      /* line 51, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'tablet portrait old'; } }
+  @media screen and (min-width: 769px) and (max-width: 1024px) and (-webkit-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #888; }
+      /* line 60, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'tablet landscape old'; } }
+  @media screen and (min-width: 769px) and (max-width: 1024px) and (-moz-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #888; }
+      /* line 60, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'tablet landscape old'; } }
+  @media screen and (min-width: 769px) and (max-width: 1024px) and (-ms-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #888; }
+      /* line 60, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'tablet landscape old'; } }
+  @media screen and (min-width: 769px) and (max-width: 1024px) and (-o-device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #888; }
+      /* line 60, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'tablet landscape old'; } }
+  @media screen and (min-width: 769px) and (max-width: 1024px) and (device-pixel-ratio: 1) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #888; }
+      /* line 60, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'tablet landscape old'; } }
+  @media screen and (min-width: 1025px) and (max-width: 1280px) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #aaa; }
+      /* line 69, ../scss/sample.scss */
+      html:after {
+        content: 'desctop modern'; } }
+  @media screen and (min-width: 1281px) and (max-width: 1600px) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #ccc; }
+      /* line 77, ../scss/sample.scss */
+      html:after {
+        content: 'desctop wide'; } }
+  @media screen and (min-width: 1601px) and (max-width: 1920px) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #eee; }
+      /* line 85, ../scss/sample.scss */
+      html:after {
+        content: 'desctop hd'; } }
+  @media screen and (min-width: 1921px) {
+    /* line 18, ../scss/sample.scss */
+    html {
+      background: #cc0000; }
+      /* line 93, ../scss/sample.scss */
+      html:after {
+        color: #fff;
+        content: 'desctop over'; } }
