@@ -285,111 +285,114 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
  *
  *********************************** */
 @mixin mq-desctop ( $size: narrow, $version: modern ) {
-        @each $prefix in $MQ_PREFIX_TYPES
-        {
-                @if $version == modern {
-                        @if $size == narrow {
-                                @media screen
-                                        and ( min-width: $MQ_OLD_TABLET_LANDSCAPE )
-                                        and ( max-width: $MQ_DESCTOP_NARROW )
-                                {
-                                        @content;
-                                }
-                        } @else if $size == modern {
-                                @media screen
-                                        and ( min-width: $MQ_DESCTOP_NARROW + 1 )
-                                        and ( max-width: $MQ_DESCTOP_MODERN )
-                                {
-                                        @content;
-                                }
-                        } @else if $size == wide {
-                                @media screen
-                                        and ( min-width: $MQ_DESCTOP_MODERN + 1 )
-                                        and ( max-width: $MQ_DESCTOP_WIDE )
-                                {
-                                        @content;
-                                }
-                        } @else if $size == hd {
-                                @media screen
-                                        and ( min-width: $MQ_DESCTOP_WIDE + 1 )
-                                        and ( max-width: $MQ_DESCTOP_HD )
-                                {
-                                        @content;
-                                }
-                        } @else if $size == over {
-                                @media screen
-                                        and ( min-width: $MQ_DESCTOP_HD + 1 )
-                                {
-                                        @content;
-                                }
+        @if $version == modern {
+                @if $size == narrow {
+                        @media screen
+                        and ( min-width: $MQ_OLD_TABLET_LANDSCAPE )
+                        and ( max-width: $MQ_DESCTOP_NARROW )
+                        {
+                                @content;
                         }
-                } @else if $version == future {
+                } @else if $size == modern {
+                        @media screen
+                        and ( min-width: $MQ_DESCTOP_NARROW + 1 )
+                        and ( max-width: $MQ_DESCTOP_MODERN )
+                        {
+                                @content;
+                        }
+                } @else if $size == wide {
+                        @media screen
+                        and ( min-width: $MQ_DESCTOP_MODERN + 1 )
+                        and ( max-width: $MQ_DESCTOP_WIDE )
+                        {
+                                @content;
+                        }
+                } @else if $size == hd {
+                        @media screen
+                        and ( min-width: $MQ_DESCTOP_WIDE + 1 )
+                        and ( max-width: $MQ_DESCTOP_HD )
+                        {
+                                @content;
+                        }
+                } @else if $size == over {
+                        @media screen
+                        and ( min-width: $MQ_DESCTOP_HD + 1 )
+                        {
+                                @content;
+                        }
+                }
+        } @else if $version == future {
+                @each $prefix in $MQ_PREFIX_TYPES
+                {
                         @if $size == modern {
                                 @media screen
-                                        and ( min-width: $MQ_DESCTOP_NARROW + 1 )
-                                        and ( max-width: $MQ_FUTURE_DESCTOP_MODERN )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
+                                and ( min-width: $MQ_DESCTOP_NARROW + 1 )
+                                and ( max-width: $MQ_FUTURE_DESCTOP_MODERN )
+                                and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
                                 {
                                         @content;
                                 }
                         } @else if $size == wide {
                                 @media screen
-                                        and ( min-width: $MQ_FUTURE_DESCTOP_MODERN + 1 )
-                                        and ( max-width: $MQ_FUTURE_DESCTOP_WIDE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
+                                and ( min-width: $MQ_FUTURE_DESCTOP_MODERN + 1 )
+                                and ( max-width: $MQ_FUTURE_DESCTOP_WIDE )
+                                and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
                                 {
                                         @content;
                                 }
                         }
-                } @else if $version == any {
-                        @if $size == narrow {
-                                @media screen
-                                        and ( min-width: $MQ_OLD_TABLET_LANDSCAPE )
-                                        and ( max-width: $MQ_DESCTOP_NARROW )
-                                {
-                                        @content;
-                                }
-                        } @else if $size == modern {
-                                @media screen
-                                        and ( min-width: $MQ_DESCTOP_NARROW + 1 )
-                                        and ( max-width: $MQ_DESCTOP_MODERN )
-                                {
-                                        @content;
-                                }
-                        } @else if $size == wide {
-                                @media screen
-                                        and ( min-width: $MQ_DESCTOP_MODERN + 1 )
-                                        and ( max-width: $MQ_DESCTOP_WIDE )
-                                {
-                                        @content;
-                                }
-                        } @else if $size == hd {
-                                @media screen
-                                        and ( min-width: $MQ_DESCTOP_WIDE + 1 )
-                                        and ( max-width: $MQ_DESCTOP_HD )
-                                {
-                                        @content;
-                                }
-                        } @else if $size == over {
-                                @media screen
-                                        and ( min-width: $MQ_DESCTOP_HD + 1 )
-                                {
-                                        @content;
-                                }
+                }
+        } @else if $version == any {
+                @if $size == narrow {
+                        @media screen
+                        and ( min-width: $MQ_OLD_TABLET_LANDSCAPE )
+                        and ( max-width: $MQ_DESCTOP_NARROW )
+                        {
+                                @content;
                         }
+                } @else if $size == modern {
+                        @media screen
+                        and ( min-width: $MQ_DESCTOP_NARROW + 1 )
+                        and ( max-width: $MQ_DESCTOP_MODERN )
+                        {
+                                @content;
+                        }
+                } @else if $size == wide {
+                        @media screen
+                        and ( min-width: $MQ_DESCTOP_MODERN + 1 )
+                        and ( max-width: $MQ_DESCTOP_WIDE )
+                        {
+                                @content;
+                        }
+                } @else if $size == hd {
+                        @media screen
+                        and ( min-width: $MQ_DESCTOP_WIDE + 1 )
+                        and ( max-width: $MQ_DESCTOP_HD )
+                        {
+                                @content;
+                        }
+                } @else if $size == over {
+                        @media screen
+                        and ( min-width: $MQ_DESCTOP_HD + 1 )
+                        {
+                                @content;
+                        }
+                }
+                @each $prefix in $MQ_PREFIX_TYPES
+                {
                         @if $size == modern {
                                 @media screen
-                                        and ( min-width: $MQ_DESCTOP_NARROW + 1 )
-                                        and ( max-width: $MQ_FUTURE_DESCTOP_MODERN )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
+                                and ( min-width: $MQ_DESCTOP_NARROW + 1 )
+                                and ( max-width: $MQ_FUTURE_DESCTOP_MODERN )
+                                and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
                                 {
                                         @content;
                                 }
                         } @else if $size == wide {
                                 @media screen
-                                        and ( min-width: $MQ_FUTURE_DESCTOP_MODERN + 1 )
-                                        and ( max-width: $MQ_FUTURE_DESCTOP_WIDE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
+                                and ( min-width: $MQ_FUTURE_DESCTOP_MODERN + 1 )
+                                and ( max-width: $MQ_FUTURE_DESCTOP_WIDE )
+                                and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
                                 {
                                         @content;
                                 }
