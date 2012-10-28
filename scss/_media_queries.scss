@@ -3,9 +3,9 @@
  * SCSS Media Queries Mixins
  * 
  * Aauthor   : Ryuichi Nonaka
- * Version   : 1.0
+ * Version   : 2.0
  * Copyright : 2012 Ryuichi Nonaka
- * Date      : 2012/09/11
+ * Date      : 2012/10/28
  *
  * Released under the MIT license
  *
@@ -19,23 +19,33 @@
  *********************************** */
 $MQ_OLD_MOBILE_PORTRAIT         :   320px !default;
 $MQ_OLD_MOBILE_LANDSCAPE        :   480px !default;
+$MQ_OLD_MOBILE_PXRATIO          :     1.0 !default;
 
 $MQ_MODERN_MOBILE_PORTRAIT      :   320px !default; // 640 resolution.
 $MQ_MODERN_MOBILE_LANDSCAPE     :   480px !default; // 960 resolution.
+$MQ_MODERN_MOBILE_PXRATIO       :     1.5 !default; // iOS: 2.0
 
-$MQ_FUTURE_MOBILE_PORTRAIT      :   640px !default; // new iPhone(5?).
-$MQ_FUTURE_MOBILE_LANDSCAPE     :  1136px !default; // new iPhone(5?).
+$MQ_FUTURE_MOBILE_PORTRAIT      :   320px !default; // new iPhone 5.
+$MQ_FUTURE_MOBILE_LANDSCAPE     :   568px !default; // new iPhone 5.
+$MQ_FUTURE_MOBILE_PXRATIO       :     1.5 !default; // iOS: 2.0
 
-$MQ_OLD_TABLET_PORTRAIT         :   768px !default; // 1 or 2.
-$MQ_OLD_TABLET_LANDSCAPE        :  1024px !default; // 1 or 2.
+$MQ_OLD_TABLET_PORTRAIT         :   768px !default; // 1 or 2 or mini.
+$MQ_OLD_TABLET_LANDSCAPE        :  1024px !default; // 1 or 2 or mini.
+$MQ_OLD_TABLET_PXRATIO          :     1.0 !default;
 
 $MQ_MODERN_TABLET_PORTRAIT      :   768px !default; // new iPad: 1,536 resolution.
 $MQ_MODERN_TABLET_LANDSCAPE     :  1024px !default; // new iPad: 2,048 resolution.
+$MQ_MODERN_TABLET_PXRATIO       :     1.5 !default; // iOS: 2.0
 
 $MQ_DESCTOP_NARROW              :  1024px !default;
 $MQ_DESCTOP_MODERN              :  1280px !default;
 $MQ_DESCTOP_WIDE                :  1600px !default;
 $MQ_DESCTOP_HD                  :  1920px !default;
+$MQ_MODERN_DESCTOP_PXRATIO      :     1.0 !default;
+
+$MQ_FUTURE_DESCTOP_MODERN       :  1280px !default; //13inch MacBookPro Retina 2560
+$MQ_FUTURE_DESCTOP_WIDE         :  1440px !default; //15inch MacBookPro Retina 2880
+$MQ_FUTURE_DESCTOP_PXRATIO      :     1.5 !default; // MacOS: 2.0
 
 
 /* ************************************
@@ -51,10 +61,11 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
  *
  * Mobile Device mixin
  * @param $orientation Direction of a device
- * @param $version [old|modern|any] The version of a device
+ * @param $version [old|modern|future|any] The version of a device
  *
  * old    : iPhone 3G or 3GS.
  * modern : iPhone 4 or 4S.
+ * future : iPhone 5.
  * any    : All version.
  *
  *********************************** */
@@ -66,7 +77,7 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @media screen 
                                         and ( min-width: 0 )
                                         and ( max-width: $MQ_OLD_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_MOBILE_PXRATIO )
                                 {
                                         @content;
                                 }
@@ -74,7 +85,7 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @media screen
                                         and ( min-width: $MQ_OLD_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_OLD_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_MOBILE_PXRATIO )
                                 {
                                         @content;
                                 }
@@ -84,7 +95,7 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @media screen
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_MODERN_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: 1.5 )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_MOBILE_PXRATIO )
                                 {
                                         @content;
                                 }
@@ -92,7 +103,25 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @media screen
                                         and ( min-width: $MQ_MODERN_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_MODERN_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: 1.5 )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_MOBILE_PXRATIO )
+                                {
+                                        @content;
+                                }
+                        }
+                } @else if $version == future {
+                        @if $orientation == portrait {
+                                @media screen
+                                        and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
+                                        and ( max-width: $MQ_FUTURE_MOBILE_PORTRAIT )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_MOBILE_PXRATIO )
+                                {
+                                        @content;
+                                }
+                        } @else if $orientation == landscape {
+                                @media screen
+                                        and ( min-width: $MQ_FUTURE_MOBILE_PORTRAIT + 1 )
+                                        and ( max-width: $MQ_FUTURE_MOBILE_LANDSCAPE )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_MOBILE_PXRATIO )
                                 {
                                         @content;
                                 }
@@ -102,14 +131,21 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @media screen 
                                         and ( min-width: 0 )
                                         and ( max-width: $MQ_OLD_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_MOBILE_PXRATIO )
                                 {
                                         @content;
                                 }
                                 @media screen
                                         and ( min-width: 0 )
                                         and ( max-width: $MQ_MODERN_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: 1.5 )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_MOBILE_PXRATIO )
+                                {
+                                        @content;
+                                }
+                                @media screen
+                                        and ( min-width: 0 )
+                                        and ( max-width: $MQ_FUTURE_MOBILE_PORTRAIT )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_MOBILE_PXRATIO )
                                 {
                                         @content;
                                 }
@@ -117,14 +153,21 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @media screen
                                         and ( min-width: $MQ_OLD_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_OLD_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_MOBILE_PXRATIO )
                                 {
                                         @content;
                                 }
                                 @media screen
                                         and ( min-width: $MQ_MODERN_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_MODERN_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: 1.5 )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_MOBILE_PXRATIO )
+                                {
+                                        @content;
+                                }
+                                @media screen
+                                        and ( min-width: $MQ_FUTURE_MOBILE_PORTRAIT + 1 )
+                                        and ( max-width: $MQ_FUTURE_MOBILE_LANDSCAPE )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_MOBILE_PXRATIO )
                                 {
                                         @content;
                                 }
@@ -140,8 +183,8 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
  * @param $orientation Direction of a device
  * @param $version [old|modern|any] The version of a device
  *
- * old    : iPad 1 or 2.
- * modern : new iPad.
+ * old    : iPad 1 or 2 or mini.
+ * modern : new iPad (3).
  * any    : All version.
  *
  *********************************** */
@@ -153,7 +196,7 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @media screen 
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_OLD_TABLET_PORTRAIT )
-                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_TABLET_PXRATIO )
                                 {
                                         @content;
                                 }
@@ -161,7 +204,7 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @media screen
                                         and ( min-width: $MQ_OLD_TABLET_PORTRAIT + 1 )
                                         and ( max-width: $MQ_OLD_TABLET_LANDSCAPE )
-                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_TABLET_PXRATIO )
                                 {
                                         @content;
                                 }
@@ -171,7 +214,7 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @media screen
                                         and ( min-width: $MQ_OLD_TABLET_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_PORTRAIT )
-                                        and ( #{$prefix}device-pixel-ratio: 1.5 )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
                                 {
                                         @content;
                                 }
@@ -179,7 +222,7 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @media screen
                                         and ( min-width: $MQ_MODERN_TABLET_PORTRAIT + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_LANDSCAPE )
-                                        and ( #{$prefix}device-pixel-ratio: 1.5 )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
                                 {
                                         @content;
                                 }
@@ -189,14 +232,14 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @media screen 
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_OLD_TABLET_PORTRAIT )
-                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_TABLET_PXRATIO )
                                 {
                                         @content;
                                 }
                                 @media screen
                                         and ( min-width: $MQ_OLD_TABLET_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_PORTRAIT )
-                                        and ( #{$prefix}device-pixel-ratio: 1.5 )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
                                 {
                                         @content;
                                 }
@@ -204,14 +247,14 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @media screen
                                         and ( min-width: $MQ_OLD_TABLET_PORTRAIT + 1 )
                                         and ( max-width: $MQ_OLD_TABLET_LANDSCAPE )
-                                        and ( #{$prefix}device-pixel-ratio: 1 )
+                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_TABLET_PXRATIO )
                                 {
                                         @content;
                                 }
                                 @media screen
                                         and ( min-width: $MQ_MODERN_TABLET_PORTRAIT + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_LANDSCAPE )
-                                        and ( #{$prefix}device-pixel-ratio: 1.5 )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
                                 {
                                         @content;
                                 }
@@ -225,48 +268,132 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
  *
  * Desctop Device mixin
  * @param $size Direction of a device
+ * @param $version [modern|future|any] The version of a device
  *
+ * Version modern ---------------------
  * narrow  : max width 1024.
  * modern  : max width 1280.
  * wide    : max width 1600.
  * hd      : max width 1920.
  * over    : width 1920 over.
+ * ratio   : 1.0
+ *
+ * Version future ---------------------
+ * modern : max width 1280.
+ * wide   : max width 1440.
+ * ratio  : 2.0
  *
  *********************************** */
-@mixin mq-desctop ( $size: narrow ) {
-        @if $size == narrow {
-                @media screen
-                        and ( min-width: $MQ_OLD_TABLET_LANDSCAPE )
-                        and ( max-width: $MQ_DESCTOP_NARROW )
-                {
-                        @content;
-                }
-        } @else if $size == modern {
-                @media screen
-                        and ( min-width: $MQ_DESCTOP_NARROW + 1 )
-                        and ( max-width: $MQ_DESCTOP_MODERN )
-                {
-                        @content;
-                }
-        } @else if $size == wide {
-                @media screen
-                        and ( min-width: $MQ_DESCTOP_MODERN + 1 )
-                        and ( max-width: $MQ_DESCTOP_WIDE )
-                {
-                        @content;
-                }
-        } @else if $size == hd {
-                @media screen
-                        and ( min-width: $MQ_DESCTOP_WIDE + 1 )
-                        and ( max-width: $MQ_DESCTOP_HD )
-                {
-                        @content;
-                }
-        } @else if $size == over {
-                @media screen
-                        and ( min-width: $MQ_DESCTOP_HD + 1 )
-                {
-                        @content;
+@mixin mq-desctop ( $size: narrow, $version: modern ) {
+        @each $prefix in $MQ_PREFIX_TYPES
+        {
+                @if $version == modern {
+                        @if $size == narrow {
+                                @media screen
+                                        and ( min-width: $MQ_OLD_TABLET_LANDSCAPE )
+                                        and ( max-width: $MQ_DESCTOP_NARROW )
+                                {
+                                        @content;
+                                }
+                        } @else if $size == modern {
+                                @media screen
+                                        and ( min-width: $MQ_DESCTOP_NARROW + 1 )
+                                        and ( max-width: $MQ_DESCTOP_MODERN )
+                                {
+                                        @content;
+                                }
+                        } @else if $size == wide {
+                                @media screen
+                                        and ( min-width: $MQ_DESCTOP_MODERN + 1 )
+                                        and ( max-width: $MQ_DESCTOP_WIDE )
+                                {
+                                        @content;
+                                }
+                        } @else if $size == hd {
+                                @media screen
+                                        and ( min-width: $MQ_DESCTOP_WIDE + 1 )
+                                        and ( max-width: $MQ_DESCTOP_HD )
+                                {
+                                        @content;
+                                }
+                        } @else if $size == over {
+                                @media screen
+                                        and ( min-width: $MQ_DESCTOP_HD + 1 )
+                                {
+                                        @content;
+                                }
+                        }
+                } @else if $version == future {
+                        @if $size == modern {
+                                @media screen
+                                        and ( min-width: $MQ_DESCTOP_NARROW + 1 )
+                                        and ( max-width: $MQ_FUTURE_DESCTOP_MODERN )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
+                                {
+                                        @content;
+                                }
+                        } @else if $size == wide {
+                                @media screen
+                                        and ( min-width: $MQ_FUTURE_DESCTOP_MODERN + 1 )
+                                        and ( max-width: $MQ_FUTURE_DESCTOP_WIDE )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
+                                {
+                                        @content;
+                                }
+                        }
+                } @else if $version == any {
+                        @if $size == narrow {
+                                @media screen
+                                        and ( min-width: $MQ_OLD_TABLET_LANDSCAPE )
+                                        and ( max-width: $MQ_DESCTOP_NARROW )
+                                {
+                                        @content;
+                                }
+                        } @else if $size == modern {
+                                @media screen
+                                        and ( min-width: $MQ_DESCTOP_NARROW + 1 )
+                                        and ( max-width: $MQ_DESCTOP_MODERN )
+                                {
+                                        @content;
+                                }
+                        } @else if $size == wide {
+                                @media screen
+                                        and ( min-width: $MQ_DESCTOP_MODERN + 1 )
+                                        and ( max-width: $MQ_DESCTOP_WIDE )
+                                {
+                                        @content;
+                                }
+                        } @else if $size == hd {
+                                @media screen
+                                        and ( min-width: $MQ_DESCTOP_WIDE + 1 )
+                                        and ( max-width: $MQ_DESCTOP_HD )
+                                {
+                                        @content;
+                                }
+                        } @else if $size == over {
+                                @media screen
+                                        and ( min-width: $MQ_DESCTOP_HD + 1 )
+                                {
+                                        @content;
+                                }
+                        }
+                        @if $size == modern {
+                                @media screen
+                                        and ( min-width: $MQ_DESCTOP_NARROW + 1 )
+                                        and ( max-width: $MQ_FUTURE_DESCTOP_MODERN )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
+                                {
+                                        @content;
+                                }
+                        } @else if $size == wide {
+                                @media screen
+                                        and ( min-width: $MQ_FUTURE_DESCTOP_MODERN + 1 )
+                                        and ( max-width: $MQ_FUTURE_DESCTOP_WIDE )
+                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
+                                {
+                                        @content;
+                                }
+                        }
                 }
         }
 }

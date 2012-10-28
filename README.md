@@ -18,7 +18,7 @@ http://sass-lang.com/
 ### スマートフォン端末向け
 ** mq-mobile ( $orientation: portrait, $version: old ) **  
 @param $orientation Direction of a device  
-@param $version [old|modern|any] The version of a device  
+@param $version [old|modern|future|any] The version of a device  
 
 ### タブレット端末向け
 ** mq-tablet ( $orientation: portrait, $version: old ) **  
@@ -26,8 +26,9 @@ http://sass-lang.com/
 @param $version [old|modern|any] The version of a device  
 
 ### デスクトップ端末向け
-** mq-desctop ( $size: narrow ) **  
+** mq-desctop ( $size: narrow, $version: modern ) **  
 @param $size Direction of a device  
+@param $version [modern|future] The version of a device 
 
 ### 記述サンプル
 ```css
@@ -78,6 +79,10 @@ mixinは@includeで呼び出します。このmixinは宣言ブロック内で�
         @include mq-mobile('landscape', 'old') {
                 width   : 480px;
         }
+        @include mq-mobile('landscape', 'future') {
+                //iPhone 5 landscape
+                width   : 568px;
+        }
         @include mq-tablet('portrait', 'old') {
                 width   : 768px;
         }
@@ -115,9 +120,9 @@ mixinは@includeで呼び出します。このmixinは宣言ブロック内で�
 SCSS Media Queries Mixins
  
 Aauthor   : Ryuichi Nonaka  
-Version   : 1.0  
+Version   : 2.0  
 Copyright : 2012 Ryuichi Nonaka  
-Date      : 2012/09/11  
+Date      : 2012/10/28  
 
 Released under the MIT license
 

@@ -13,28 +13,34 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   outline: 0;
   font-size: 100%;
   vertical-align: baseline;
-  background: transparent; }
+  background: transparent;
+}
 
 /* line 8, ../scss/sample.scss */
 body {
-  line-height: 1; }
+  line-height: 1;
+}
 
 /* line 8, ../scss/sample.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block; }
+  display: block;
+}
 
 /* line 8, ../scss/sample.scss */
 nav ul {
-  list-style: none; }
+  list-style: none;
+}
 
 /* line 8, ../scss/sample.scss */
 blockquote, q {
-  quotes: none; }
+  quotes: none;
+}
 
 /* line 8, ../scss/sample.scss */
 blockquote:before, blockquote:after, q:before, q:after {
   content: '';
-  content: none; }
+  content: none;
+}
 
 /* line 8, ../scss/sample.scss */
 a {
@@ -42,34 +48,40 @@ a {
   padding: 0;
   font-size: 100%;
   vertical-align: baseline;
-  background: transparent; }
+  background: transparent;
+}
 
 /* line 8, ../scss/sample.scss */
 ins {
   background-color: #ff9;
   color: #000;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 /* line 8, ../scss/sample.scss */
 mark {
   background-color: #ff9;
   color: #000;
   font-style: italic;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 /* line 8, ../scss/sample.scss */
 del {
-  text-decoration: line-through; }
+  text-decoration: line-through;
+}
 
 /* line 8, ../scss/sample.scss */
 abbr[title], dfn[title] {
   border-bottom: 1px dotted;
-  cursor: help; }
+  cursor: help;
+}
 
 /* line 8, ../scss/sample.scss */
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 /* line 8, ../scss/sample.scss */
 hr {
@@ -78,11 +90,13 @@ hr {
   border: 0;
   border-top: 1px solid #cccccc;
   margin: 1em 0;
-  padding: 0; }
+  padding: 0;
+}
 
 /* line 8, ../scss/sample.scss */
 input, select {
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 /* *****************************
  *
@@ -94,9 +108,9 @@ input, select {
  * SCSS Media Queries Mixins
  * 
  * Aauthor   : Ryuichi Nonaka
- * Version   : 1.0
+ * Version   : 2.0
  * Copyright : 2012 Ryuichi Nonaka
- * Date      : 2012/09/11
+ * Date      : 2012/10/28
  *
  * Released under the MIT license
  *
@@ -117,10 +131,11 @@ input, select {
  *
  * Mobile Device mixin
  * @param $orientation Direction of a device
- * @param $version [old|modern|any] The version of a device
+ * @param $version [old|modern|future|any] The version of a device
  *
  * old    : iPhone 3G or 3GS.
  * modern : iPhone 4 or 4S.
+ * future : iPhone 5.
  * any    : All version.
  *
  *********************************** */
@@ -130,8 +145,8 @@ input, select {
  * @param $orientation Direction of a device
  * @param $version [old|modern|any] The version of a device
  *
- * old    : iPad 1 or 2.
- * modern : new iPad.
+ * old    : iPad 1 or 2 or mini.
+ * modern : new iPad (3).
  * any    : All version.
  *
  *********************************** */
@@ -139,205 +154,450 @@ input, select {
  *
  * Desctop Device mixin
  * @param $size Direction of a device
+ * @param $version [modern|future|any] The version of a device
  *
+ * Version modern ---------------------
  * narrow  : max width 1024.
  * modern  : max width 1280.
  * wide    : max width 1600.
  * hd      : max width 1920.
  * over    : width 1920 over.
+ * ratio   : 1.0
+ *
+ * Version future ---------------------
+ * modern : max width 1280.
+ * wide   : max width 1440.
+ * ratio  : 2.0
  *
  *********************************** */
 /* line 18, ../scss/sample.scss */
 html {
   padding: 20%;
   font-weight: bold;
-  background: #000; }
-  @media screen and (min-width: 0) and (max-width: 320px) and (-webkit-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #222; }
-      /* line 33, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'mobile portrait old'; } }
-  @media screen and (min-width: 0) and (max-width: 320px) and (-moz-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #222; }
-      /* line 33, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'mobile portrait old'; } }
-  @media screen and (min-width: 0) and (max-width: 320px) and (-ms-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #222; }
-      /* line 33, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'mobile portrait old'; } }
-  @media screen and (min-width: 0) and (max-width: 320px) and (-o-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #222; }
-      /* line 33, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'mobile portrait old'; } }
-  @media screen and (min-width: 0) and (max-width: 320px) and (device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #222; }
-      /* line 33, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'mobile portrait old'; } }
-  @media screen and (min-width: 321px) and (max-width: 480px) and (-webkit-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #444; }
-      /* line 42, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'mobile landscape old'; } }
-  @media screen and (min-width: 321px) and (max-width: 480px) and (-moz-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #444; }
-      /* line 42, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'mobile landscape old'; } }
-  @media screen and (min-width: 321px) and (max-width: 480px) and (-ms-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #444; }
-      /* line 42, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'mobile landscape old'; } }
-  @media screen and (min-width: 321px) and (max-width: 480px) and (-o-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #444; }
-      /* line 42, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'mobile landscape old'; } }
-  @media screen and (min-width: 321px) and (max-width: 480px) and (device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #444; }
-      /* line 42, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'mobile landscape old'; } }
-  @media screen and (min-width: 481px) and (max-width: 768px) and (-webkit-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #666; }
-      /* line 51, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'tablet portrait old'; } }
-  @media screen and (min-width: 481px) and (max-width: 768px) and (-moz-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #666; }
-      /* line 51, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'tablet portrait old'; } }
-  @media screen and (min-width: 481px) and (max-width: 768px) and (-ms-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #666; }
-      /* line 51, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'tablet portrait old'; } }
-  @media screen and (min-width: 481px) and (max-width: 768px) and (-o-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #666; }
-      /* line 51, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'tablet portrait old'; } }
-  @media screen and (min-width: 481px) and (max-width: 768px) and (device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #666; }
-      /* line 51, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'tablet portrait old'; } }
-  @media screen and (min-width: 769px) and (max-width: 1024px) and (-webkit-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #888; }
-      /* line 60, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'tablet landscape old'; } }
-  @media screen and (min-width: 769px) and (max-width: 1024px) and (-moz-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #888; }
-      /* line 60, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'tablet landscape old'; } }
-  @media screen and (min-width: 769px) and (max-width: 1024px) and (-ms-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #888; }
-      /* line 60, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'tablet landscape old'; } }
-  @media screen and (min-width: 769px) and (max-width: 1024px) and (-o-device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #888; }
-      /* line 60, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'tablet landscape old'; } }
-  @media screen and (min-width: 769px) and (max-width: 1024px) and (device-pixel-ratio: 1) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #888; }
-      /* line 60, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'tablet landscape old'; } }
-  @media screen and (min-width: 1025px) and (max-width: 1280px) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #aaa; }
-      /* line 69, ../scss/sample.scss */
-      html:after {
-        content: 'desctop modern'; } }
-  @media screen and (min-width: 1281px) and (max-width: 1600px) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #ccc; }
-      /* line 77, ../scss/sample.scss */
-      html:after {
-        content: 'desctop wide'; } }
-  @media screen and (min-width: 1601px) and (max-width: 1920px) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #eee; }
-      /* line 85, ../scss/sample.scss */
-      html:after {
-        content: 'desctop hd'; } }
-  @media screen and (min-width: 1921px) {
-    /* line 18, ../scss/sample.scss */
-    html {
-      background: #cc0000; }
-      /* line 93, ../scss/sample.scss */
-      html:after {
-        color: #fff;
-        content: 'desctop over'; } }
+  background: #000;
+}
+@media screen and (min-width: 0) and (max-width: 320px) and (-webkit-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #222;
+  }
+  /* line 33, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'mobile portrait old';
+  }
+}
+@media screen and (min-width: 0) and (max-width: 320px) and (-moz-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #222;
+  }
+  /* line 33, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'mobile portrait old';
+  }
+}
+@media screen and (min-width: 0) and (max-width: 320px) and (-ms-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #222;
+  }
+  /* line 33, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'mobile portrait old';
+  }
+}
+@media screen and (min-width: 0) and (max-width: 320px) and (-o-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #222;
+  }
+  /* line 33, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'mobile portrait old';
+  }
+}
+@media screen and (min-width: 0) and (max-width: 320px) and (max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #222;
+  }
+  /* line 33, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'mobile portrait old';
+  }
+}
+@media screen and (min-width: 321px) and (max-width: 480px) and (-webkit-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #444;
+  }
+  /* line 42, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'mobile landscape old';
+  }
+}
+@media screen and (min-width: 321px) and (max-width: 480px) and (-moz-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #444;
+  }
+  /* line 42, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'mobile landscape old';
+  }
+}
+@media screen and (min-width: 321px) and (max-width: 480px) and (-ms-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #444;
+  }
+  /* line 42, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'mobile landscape old';
+  }
+}
+@media screen and (min-width: 321px) and (max-width: 480px) and (-o-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #444;
+  }
+  /* line 42, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'mobile landscape old';
+  }
+}
+@media screen and (min-width: 321px) and (max-width: 480px) and (max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #444;
+  }
+  /* line 42, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'mobile landscape old';
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) and (-webkit-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #666;
+  }
+  /* line 51, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet portrait old';
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) and (-moz-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #666;
+  }
+  /* line 51, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet portrait old';
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) and (-ms-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #666;
+  }
+  /* line 51, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet portrait old';
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) and (-o-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #666;
+  }
+  /* line 51, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet portrait old';
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) and (max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #666;
+  }
+  /* line 51, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet portrait old';
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) and (-webkit-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #888;
+  }
+  /* line 60, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape old';
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) and (-moz-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #888;
+  }
+  /* line 60, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape old';
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) and (-ms-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #888;
+  }
+  /* line 60, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape old';
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) and (-o-max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #888;
+  }
+  /* line 60, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape old';
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) and (max-device-pixel-ratio: 1) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #888;
+  }
+  /* line 60, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape old';
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #aaa;
+  }
+  /* line 69, ../scss/sample.scss */
+  html:after {
+    content: 'desctop modern';
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #aaa;
+  }
+  /* line 69, ../scss/sample.scss */
+  html:after {
+    content: 'desctop modern';
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #aaa;
+  }
+  /* line 69, ../scss/sample.scss */
+  html:after {
+    content: 'desctop modern';
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #aaa;
+  }
+  /* line 69, ../scss/sample.scss */
+  html:after {
+    content: 'desctop modern';
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #aaa;
+  }
+  /* line 69, ../scss/sample.scss */
+  html:after {
+    content: 'desctop modern';
+  }
+}
+@media screen and (min-width: 1281px) and (max-width: 1600px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #ccc;
+  }
+  /* line 77, ../scss/sample.scss */
+  html:after {
+    content: 'desctop wide';
+  }
+}
+@media screen and (min-width: 1281px) and (max-width: 1600px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #ccc;
+  }
+  /* line 77, ../scss/sample.scss */
+  html:after {
+    content: 'desctop wide';
+  }
+}
+@media screen and (min-width: 1281px) and (max-width: 1600px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #ccc;
+  }
+  /* line 77, ../scss/sample.scss */
+  html:after {
+    content: 'desctop wide';
+  }
+}
+@media screen and (min-width: 1281px) and (max-width: 1600px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #ccc;
+  }
+  /* line 77, ../scss/sample.scss */
+  html:after {
+    content: 'desctop wide';
+  }
+}
+@media screen and (min-width: 1281px) and (max-width: 1600px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #ccc;
+  }
+  /* line 77, ../scss/sample.scss */
+  html:after {
+    content: 'desctop wide';
+  }
+}
+@media screen and (min-width: 1601px) and (max-width: 1920px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #eee;
+  }
+  /* line 85, ../scss/sample.scss */
+  html:after {
+    content: 'desctop hd';
+  }
+}
+@media screen and (min-width: 1601px) and (max-width: 1920px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #eee;
+  }
+  /* line 85, ../scss/sample.scss */
+  html:after {
+    content: 'desctop hd';
+  }
+}
+@media screen and (min-width: 1601px) and (max-width: 1920px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #eee;
+  }
+  /* line 85, ../scss/sample.scss */
+  html:after {
+    content: 'desctop hd';
+  }
+}
+@media screen and (min-width: 1601px) and (max-width: 1920px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #eee;
+  }
+  /* line 85, ../scss/sample.scss */
+  html:after {
+    content: 'desctop hd';
+  }
+}
+@media screen and (min-width: 1601px) and (max-width: 1920px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #eee;
+  }
+  /* line 85, ../scss/sample.scss */
+  html:after {
+    content: 'desctop hd';
+  }
+}
+@media screen and (min-width: 1921px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #cc0000;
+  }
+  /* line 93, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'desctop over';
+  }
+}
+@media screen and (min-width: 1921px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #cc0000;
+  }
+  /* line 93, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'desctop over';
+  }
+}
+@media screen and (min-width: 1921px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #cc0000;
+  }
+  /* line 93, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'desctop over';
+  }
+}
+@media screen and (min-width: 1921px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #cc0000;
+  }
+  /* line 93, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'desctop over';
+  }
+}
+@media screen and (min-width: 1921px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #cc0000;
+  }
+  /* line 93, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'desctop over';
+  }
+}
