@@ -49,19 +49,20 @@
 <h3>スマートフォン端末向け</h3>
 
 <p>** mq-mobile ( $orientation: portrait, $version: old ) **<br>
-<a href="https://github.com/Param" class="user-mention">@Param</a> $orientation Direction of a device<br>
-<a href="https://github.com/Param" class="user-mention">@Param</a> $version [old|modern|any] The version of a device  </p>
+<a href="https://github.com/param" class="user-mention">@param</a> $orientation Direction of a device<br>
+<a href="https://github.com/param" class="user-mention">@param</a> $version [old|modern|future|any] The version of a device  </p>
 
 <h3>タブレット端末向け</h3>
 
 <p>** mq-tablet ( $orientation: portrait, $version: old ) **<br>
-<a href="https://github.com/Param" class="user-mention">@Param</a> $orientation Direction of a device<br>
-<a href="https://github.com/Param" class="user-mention">@Param</a> $version [old|modern|any] The version of a device  </p>
+<a href="https://github.com/param" class="user-mention">@param</a> $orientation Direction of a device<br>
+<a href="https://github.com/param" class="user-mention">@param</a> $version [old|modern|any] The version of a device  </p>
 
 <h3>デスクトップ端末向け</h3>
 
-<p>** mq-desctop ( $size: narrow ) **<br>
-<a href="https://github.com/Param" class="user-mention">@Param</a> $size Direction of a device  </p>
+<p>** mq-desctop ( $size: narrow, $version: modern ) **<br>
+<a href="https://github.com/param" class="user-mention">@param</a> $size Direction of a device<br>
+<a href="https://github.com/param" class="user-mention">@param</a> $version [modern|future] The version of a device </p>
 
 <h3>記述サンプル</h3>
 
@@ -111,6 +112,10 @@
         <span class="k">@include</span> <span class="nt">mq-mobile</span><span class="o">(</span><span class="s1">'landscape'</span><span class="o">,</span> <span class="s1">'old'</span><span class="o">)</span> <span class="p">{</span>
                 <span class="nt">width</span>   <span class="o">:</span> <span class="nt">480px</span><span class="o">;</span>
         <span class="p">}</span>
+        <span class="k">@include</span> <span class="nt">mq-mobile</span><span class="o">(</span><span class="s1">'landscape'</span><span class="o">,</span> <span class="s1">'future'</span><span class="o">)</span> <span class="p">{</span>
+                <span class="o">//</span><span class="nt">iPhone</span> <span class="nt">5</span> <span class="nt">landscape</span>
+                <span class="nt">width</span>   <span class="o">:</span> <span class="nt">568px</span><span class="o">;</span>
+        <span class="p">}</span>
         <span class="k">@include</span> <span class="nt">mq-tablet</span><span class="o">(</span><span class="s1">'portrait'</span><span class="o">,</span> <span class="s1">'old'</span><span class="o">)</span> <span class="p">{</span>
                 <span class="nt">width</span>   <span class="o">:</span> <span class="nt">768px</span><span class="o">;</span>
         <span class="p">}</span>
@@ -148,9 +153,9 @@
 <p>SCSS Media Queries Mixins</p>
 
 <p>Aauthor   : Ryuichi Nonaka<br>
-Version   : 1.0<br>
+Version   : 2.0<br>
 Copyright : 2012 Ryuichi Nonaka<br>
-Date      : 2012/09/11  </p>
+Date      : 2012/10/28  </p>
 
 <p>Released under the MIT license</p>
       </section>
