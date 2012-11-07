@@ -396,12 +396,122 @@ html {
     content: 'tablet landscape old';
   }
 }
+@media screen and (min-width: 481px) and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #777;
+  }
+  /* line 69, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape modern';
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) and (-moz-min-device-pixel-ratio: 1.5) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #777;
+  }
+  /* line 69, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape modern';
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) and (-ms-min-device-pixel-ratio: 1.5) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #777;
+  }
+  /* line 69, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape modern';
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) and (-o-min-device-pixel-ratio: 1.5) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #777;
+  }
+  /* line 69, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape modern';
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) and (min-device-pixel-ratio: 1.5) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #777;
+  }
+  /* line 69, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape modern';
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #666;
+  }
+  /* line 78, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape modern';
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) and (-moz-min-device-pixel-ratio: 1.5) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #666;
+  }
+  /* line 78, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape modern';
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) and (-ms-min-device-pixel-ratio: 1.5) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #666;
+  }
+  /* line 78, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape modern';
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 1.5) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #666;
+  }
+  /* line 78, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape modern';
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #666;
+  }
+  /* line 78, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'tablet landscape modern';
+  }
+}
 @media screen and (min-width: 1025px) and (max-width: 1280px) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #aaa;
   }
-  /* line 69, ../scss/sample.scss */
+  /* line 87, ../scss/sample.scss */
   html:after {
     content: 'desctop modern';
   }
@@ -411,7 +521,7 @@ html {
   html {
     background: #ccc;
   }
-  /* line 77, ../scss/sample.scss */
+  /* line 95, ../scss/sample.scss */
   html:after {
     content: 'desctop wide';
   }
@@ -421,7 +531,7 @@ html {
   html {
     background: #eee;
   }
-  /* line 85, ../scss/sample.scss */
+  /* line 103, ../scss/sample.scss */
   html:after {
     content: 'desctop hd';
   }
@@ -431,7 +541,7 @@ html {
   html {
     background: #cc0000;
   }
-  /* line 93, ../scss/sample.scss */
+  /* line 111, ../scss/sample.scss */
   html:after {
     color: #fff;
     content: 'desctop over';

@@ -212,7 +212,7 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 } @else if $version == modern {
                         @if $orientation == portrait {
                                 @media screen
-                                        and ( min-width: $MQ_OLD_TABLET_LANDSCAPE + 1 )
+                                        and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_PORTRAIT )
                                         and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
                                 {
@@ -237,7 +237,7 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                         @content;
                                 }
                                 @media screen
-                                        and ( min-width: $MQ_OLD_TABLET_LANDSCAPE + 1 )
+                                        and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_PORTRAIT )
                                         and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
                                 {

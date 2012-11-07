@@ -62,6 +62,24 @@ html
                         content         : 'tablet landscape old';
                 }
         }
+        @include mq-tablet('portrait', 'modern') {
+                 background      : #777;
+
+                &:after
+                {
+                        color           : #fff;
+                        content         : 'tablet landscape modern';
+                }
+        }
+        @include mq-tablet('landscape', 'modern') {
+                 background      : #666;
+
+                &:after
+                {
+                        color           : #fff;
+                        content         : 'tablet landscape modern';
+                }
+        }
         @include mq-desctop('modern') {
                 background      : #aaa;
 
