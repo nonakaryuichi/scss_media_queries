@@ -113,4 +113,13 @@ html
                         content         : 'desctop over';
                 }
         }
+        @include mq-custom( 300px, 600px ) {
+                background      : #00cc00;
+
+                &:after
+                {
+                        color           : #fff;
+                        content         : 'custom';
+                }
+        }
 }

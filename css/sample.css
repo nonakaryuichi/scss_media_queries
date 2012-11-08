@@ -108,9 +108,9 @@ input, select {
  * SCSS Media Queries Mixins
  * 
  * Aauthor   : Ryuichi Nonaka
- * Version   : 2.1
+ * Version   : 3.0
  * Copyright : 2012 Ryuichi Nonaka
- * Date      : 2012/11/07
+ * Date      : 2012/11/08
  *
  * Released under the MIT license
  *
@@ -132,6 +132,7 @@ input, select {
  * Mobile Device mixin
  * @param $orientation Direction of a device
  * @param $version [old|modern|future|any] The version of a device
+ * @param $add_orientation boolean [true|false] add orientation attribute
  *
  * old    : iPhone 3G or 3GS.
  * modern : iPhone 4 or 4S.
@@ -144,6 +145,7 @@ input, select {
  * Tablet Device mixin
  * @param $orientation Direction of a device
  * @param $version [old|modern|any] The version of a device
+ * @param $add_orientation boolean [true|false] add orientation attribute
  *
  * old    : iPad 1 or 2 or mini.
  * modern : new iPad (3).
@@ -168,6 +170,15 @@ input, select {
  * modern : max width 1280.
  * wide   : max width 1440.
  * ratio  : 2.0
+ *
+ *********************************** */
+/* ************************************
+ *
+ * Custom Device mixin
+ * @param $min_width number(px) Minimum device size
+ * @param $max_width number(px) Maximum device size
+ * @param $pixel_ratio number Device px ratio
+ * @param $add_orientation boolean [true|false] add orientation attribute
  *
  *********************************** */
 /* line 18, ../scss/sample.scss */
@@ -545,5 +556,16 @@ html {
   html:after {
     color: #fff;
     content: 'desctop over';
+  }
+}
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  /* line 18, ../scss/sample.scss */
+  html {
+    background: #00cc00;
+  }
+  /* line 120, ../scss/sample.scss */
+  html:after {
+    color: #fff;
+    content: 'custom';
   }
 }

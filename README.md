@@ -7,7 +7,8 @@ http://sass-lang.com/
 
 お知らせ
 --------------------------------------------------
-2012-11-07: タブレットRetinaディスプレイ向けMixinのバグフィックスを行いました。 
+2012-11-08: v3.0:オリエンテーション属性の有無を引数で指定できるようになりました。デバイスサイズを自由に設定できるmq-custom() Mixinが追加されました。  
+2012-11-07: v2.1:タブレットRetinaディスプレイ向けMixinのバグフィックスを行いました。 
 
 読み込み方法
 --------------------------------------------------
@@ -23,16 +24,25 @@ http://sass-lang.com/
 ** mq-mobile ( $orientation: portrait, $version: old ) **  
 @param $orientation Direction of a device  
 @param $version [old|modern|future|any] The version of a device  
+@param $add_orientation boolean [true|false] add orientation attribute  
 
 ### タブレット端末向け
 ** mq-tablet ( $orientation: portrait, $version: old ) **  
 @param $orientation Direction of a device  
 @param $version [old|modern|any] The version of a device  
+@param $add_orientation boolean [true|false] add orientation attribute  
 
 ### デスクトップ端末向け
 ** mq-desctop ( $size: narrow, $version: modern ) **  
 @param $size Direction of a device  
 @param $version [modern|future] The version of a device 
+
+### カスタムデバイスサイズ
+** mq-custom ( $min_width, $max_width, $pixel_ratio: false, $orientation: false ) **
+@param $min_width number(px) Minimum device size  
+@param $max_width number(px) Maximum device size  
+@param $pixel_ratio number Device px ratio  
+@param $add_orientation boolean [true|false] add orientation attribute  
 
 ### 記述サンプル
 ```css
@@ -124,9 +134,9 @@ mixinは@includeで呼び出します。このmixinは宣言ブロック内で�
 SCSS Media Queries Mixins
  
 Aauthor   : Ryuichi Nonaka  
-Version   : 2.1  
+Version   : 3.0  
 Copyright : 2012 Ryuichi Nonaka  
-Date      : 2012/11/07  
+Date      : 2012/11/08  
 
 Released under the MIT license
 
