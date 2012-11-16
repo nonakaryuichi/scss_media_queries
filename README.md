@@ -7,8 +7,17 @@ http://sass-lang.com/
 
 お知らせ
 --------------------------------------------------
-2012-11-08: v3.0:オリエンテーション属性の有無を引数で指定できるようになりました。デバイスサイズを自由に設定できるmq-custom() Mixinが追加されました。  
-2012-11-07: v2.1:タブレットRetinaディスプレイ向けMixinのバグフィックスを行いました。 
+2012-11-16: v0.4.0  
+- バージョン表記を0.xに変更しました。  
+- @mediaの後ろにonlyがつくようになりました。
+- Opera向けの Device pixel ratioに対応しました。  
+2012-11-08: v0.3.0(v3.0)  
+- v3.0:オリエンテーション属性の有無を引数で指定できるようになりました。  
+- デバイスサイズを自由に設定できるmq-custom() Mixinが追加されました。  
+2012-11-07: v0.2.1(v2.1)  
+- タブレットRetinaディスプレイ向けMixinのバグフィックスを行いました。 
+2012-10-20: v0.1(v1.0)
+- 公開しました。
 
 読み込み方法
 --------------------------------------------------
@@ -18,34 +27,34 @@ http://sass-lang.com/
 @import "media_queries";
 ```
 
-説明
+Mixin
 --------------------------------------------------
-### スマートフォン端末向け
-** mq-mobile ( $orientation: portrait, $version: old ) **  
+### スマートフォン端末向け Mixin 
+`` mq-mobile ( $orientation: portrait, $version: old, $add_orientation: false ) ``  
 @param $orientation Direction of a device  
 @param $version [old|modern|future|any] The version of a device  
 @param $add_orientation boolean [true|false] add orientation attribute  
 
-### タブレット端末向け
-** mq-tablet ( $orientation: portrait, $version: old ) **  
+### タブレット端末向け Mixin 
+`` mq-tablet ( $orientation: portrait, $version: old, $add_orientation: false ) ``  
 @param $orientation Direction of a device  
 @param $version [old|modern|any] The version of a device  
 @param $add_orientation boolean [true|false] add orientation attribute  
 
-### デスクトップ端末向け
-** mq-desctop ( $size: narrow, $version: modern ) **  
+### デスクトップ端末向け Mixin 
+`` mq-desctop ( $size: narrow, $version: modern ) ``  
 @param $size Direction of a device  
 @param $version [modern|future] The version of a device 
 
-### カスタムデバイスサイズ
-** mq-custom ( $min_width, $max_width, $pixel_ratio: false, $orientation: false ) **
+### カスタムデバイスサイズ Mixin 
+`` mq-custom ( $min_width, $max_width, $pixel_ratio: false, $orientation: false ) ``
 @param $min_width number(px) Minimum device size  
 @param $max_width number(px) Maximum device size  
 @param $pixel_ratio number Device px ratio  
 @param $add_orientation boolean [true|false] add orientation attribute  
 
 ### 記述サンプル
-```css
+```scss
 @include mq-mobile('portrait', 'old') {
         ...
 }
@@ -134,9 +143,9 @@ mixinは@includeで呼び出します。このmixinは宣言ブロック内で�
 SCSS Media Queries Mixins
  
 Aauthor   : Ryuichi Nonaka  
-Version   : 3.0  
+Version   : 0.4.0  
 Copyright : 2012 Ryuichi Nonaka  
-Date      : 2012/11/08  
+Date      : 2012/11/16  
 
 Released under the MIT license
 

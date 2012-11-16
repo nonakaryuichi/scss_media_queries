@@ -3,9 +3,9 @@
  * SCSS Media Queries Mixins
  * 
  * Aauthor   : Ryuichi Nonaka
- * Version   : 3.0
+ * Version   : 0.4.0
  * Copyright : 2012 Ryuichi Nonaka
- * Date      : 2012/11/08
+ * Date      : 2012/11/16
  *
  * Released under the MIT license
  *
@@ -57,8 +57,27 @@ $MQ_FUTURE_DESCTOP_PXRATIO      :     1.5 !default; // MacOS: 2.0
  * Initialize variables
  *
  *********************************** */
-$MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
+$MQ_PREFIX_TYPES                : -webkit-, -moz-, -o-, -ms-, '' !default;
+//$MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
 
+
+/* ************************************
+ *
+ * Return ratio
+ * Initialize variables
+ * @param $prefix prefix type
+ * @param $ratio device ratio
+ *
+ *********************************** */
+@function set_temp_pxratio( $prefix, $ratio ){
+        @if $prefix == -o- {
+                $fraction_molecule    : $ratio * 2;
+                $fraction_denominator : 2;
+                @return '#{$fraction_molecule}/#{$fraction_denominator}';
+        } @else {
+                @return $ratio;
+        }
+}
 
 /* ************************************
  *
@@ -80,38 +99,38 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 @if $version == old {
                         @if $orientation == portrait {
                                 @if $add_orientation {
-                                        @media screen 
+                                        @media only screen 
                                         and ( min-width: 0 )
                                         and ( max-width: $MQ_OLD_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_MOBILE_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_MOBILE_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen 
+                                        @media only screen 
                                         and ( min-width: 0 )
                                         and ( max-width: $MQ_OLD_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_MOBILE_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_MOBILE_PXRATIO ) )
                                         {
                                                 @content;
                                         }
                                 }
                         } @else if $orientation == landscape {
                                 @if $add_orientation {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_OLD_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_MOBILE_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_MOBILE_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_OLD_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_MOBILE_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_MOBILE_PXRATIO ) )
                                         {
                                                 @content;
                                         }
@@ -121,38 +140,38 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 } @else if $version == modern {
                         @if $orientation == portrait {
                                 @if $add_orientation {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_MODERN_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_MOBILE_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_MODERN_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_MOBILE_PXRATIO ) )
                                         {
                                                 @content;
                                         }
                                 }
                         } @else if $orientation == landscape {
                                 @if $add_orientation {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_MODERN_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_MODERN_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_MOBILE_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_MODERN_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_MODERN_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_MOBILE_PXRATIO ) )
                                         {
                                                 @content;
                                         }
@@ -161,38 +180,38 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 } @else if $version == future {
                         @if $orientation == portrait {
                                 @if $add_orientation {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_FUTURE_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_FUTURE_MOBILE_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_FUTURE_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_FUTURE_MOBILE_PXRATIO ) )
                                         {
                                                 @content;
                                         }
                                 }
                         } @else if $orientation == landscape {
                                 @if $add_orientation {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_FUTURE_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_FUTURE_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_FUTURE_MOBILE_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_FUTURE_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_FUTURE_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_FUTURE_MOBILE_PXRATIO ) )
                                         {
                                                 @content;
                                         } 
@@ -201,98 +220,104 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 } @else if $version == any {
                         @if $orientation == portrait {
                                 @if $add_orientation {
-                                        @media screen 
+                                        @media only screen 
                                         and ( min-width: 0 )
                                         and ( max-width: $MQ_OLD_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_MOBILE_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_MOBILE_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
-                                        @media screen
+
+                                        @media only screen
                                         and ( min-width: 0 )
                                         and ( max-width: $MQ_MODERN_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_MOBILE_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
-                                        @media screen
+
+                                        @media only screen
                                         and ( min-width: 0 )
                                         and ( max-width: $MQ_FUTURE_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_FUTURE_MOBILE_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen 
+                                        @media only screen 
                                         and ( min-width: 0 )
                                         and ( max-width: $MQ_OLD_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_MOBILE_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_MOBILE_PXRATIO ) )
                                         {
                                                 @content;
                                         }
-                                        @media screen
+
+                                        @media only screen
                                         and ( min-width: 0 )
                                         and ( max-width: $MQ_MODERN_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_MOBILE_PXRATIO ) )
                                         {
                                                 @content;
                                         }
-                                        @media screen
+
+                                        @media only screen
                                         and ( min-width: 0 )
                                         and ( max-width: $MQ_FUTURE_MOBILE_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_FUTURE_MOBILE_PXRATIO ) )
                                         {
                                                 @content;
                                         }
                                 }
                         } @else if $orientation == landscape {
                                 @if $add_orientation {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_OLD_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_MOBILE_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_MOBILE_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_MODERN_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_MODERN_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_MOBILE_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
-                                        @media screen
+
+                                        @media only screen
                                         and ( min-width: $MQ_FUTURE_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_FUTURE_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_FUTURE_MOBILE_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_OLD_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_MOBILE_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_MOBILE_PXRATIO ) )
                                         {
                                                 @content;
                                         }
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_MODERN_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_MODERN_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_MOBILE_PXRATIO ) )
                                         {
                                                 @content;
                                         }
-                                        @media screen
+
+                                        @media only screen
                                         and ( min-width: $MQ_FUTURE_MOBILE_PORTRAIT + 1 )
                                         and ( max-width: $MQ_FUTURE_MOBILE_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_MOBILE_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_FUTURE_MOBILE_PXRATIO ) )
                                         {
                                                 @content;
                                         }
@@ -321,38 +346,38 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 @if $version == old {
                         @if $orientation == portrait {
                                 @if $add_orientation {
-                                        @media screen 
+                                        @media only screen 
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_OLD_TABLET_PORTRAIT )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_TABLET_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_TABLET_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen 
+                                        @media only screen 
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_OLD_TABLET_PORTRAIT )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_TABLET_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_TABLET_PXRATIO ) )
                                         {
                                                 @content;
                                         }
                                 }
                         } @else if $orientation == landscape {
                                 @if $add_orientation {
-                                        @media screen
+                                        @media  only screen
                                         and ( min-width: $MQ_OLD_TABLET_PORTRAIT + 1 )
                                         and ( max-width: $MQ_OLD_TABLET_LANDSCAPE )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_TABLET_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_TABLET_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_TABLET_PORTRAIT + 1 )
                                         and ( max-width: $MQ_OLD_TABLET_LANDSCAPE )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_TABLET_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_TABLET_PXRATIO ) )
                                         {
                                                 @content;
                                         }
@@ -361,38 +386,38 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 } @else if $version == modern {
                         @if $orientation == portrait {
                                 @if $add_orientation {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_TABLET_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_TABLET_PXRATIO ) )
                                         {
                                                 @content;
                                         }
                                 }
                         } @else if $orientation == landscape {
                                 @if $add_orientation {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_MODERN_TABLET_PORTRAIT + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_TABLET_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_MODERN_TABLET_PORTRAIT + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_TABLET_PXRATIO ) )
                                         {
                                                 @content;
                                         }
@@ -401,68 +426,68 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 } @else if $version == any {
                         @if $orientation == portrait {
                                 @if $add_orientation {
-                                        @media screen 
+                                        @media only screen 
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_OLD_TABLET_PORTRAIT )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_TABLET_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_TABLET_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_TABLET_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen 
+                                        @media only screen 
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_OLD_TABLET_PORTRAIT )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_TABLET_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_TABLET_PXRATIO ) )
                                         {
                                                 @content;
                                         }
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_MOBILE_LANDSCAPE + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_PORTRAIT )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_TABLET_PXRATIO ) )
                                         {
                                                 @content;
                                         }
                                 }
                         } @else if $orientation == landscape {
                                 @if $add_orientation {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_TABLET_PORTRAIT + 1 )
                                         and ( max-width: $MQ_OLD_TABLET_LANDSCAPE )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_TABLET_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_TABLET_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_MODERN_TABLET_PORTRAIT + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_TABLET_PXRATIO ) )
                                         and ( orientation: $orientation )
                                         {
                                                 @content;
                                         }
                                 } @else {
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_OLD_TABLET_PORTRAIT + 1 )
                                         and ( max-width: $MQ_OLD_TABLET_LANDSCAPE )
-                                        and ( #{$prefix}max-device-pixel-ratio: $MQ_OLD_TABLET_PXRATIO )
+                                        and ( #{$prefix}max-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_OLD_TABLET_PXRATIO ) )
                                         {
                                                 @content;
                                         }
-                                        @media screen
+                                        @media only screen
                                         and ( min-width: $MQ_MODERN_TABLET_PORTRAIT + 1 )
                                         and ( max-width: $MQ_MODERN_TABLET_LANDSCAPE )
-                                        and ( #{$prefix}min-device-pixel-ratio: $MQ_MODERN_TABLET_PXRATIO )
+                                        and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_MODERN_TABLET_PXRATIO ) )
                                         {
                                                 @content;
                                         }
@@ -496,35 +521,35 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
 @mixin mq-desctop ( $size: narrow, $version: modern ) {
         @if $version == modern {
                 @if $size == narrow {
-                        @media screen
+                        @media only screen
                         and ( min-width: $MQ_OLD_TABLET_LANDSCAPE )
                         and ( max-width: $MQ_DESCTOP_NARROW )
                         {
                                 @content;
                         }
                 } @else if $size == modern {
-                        @media screen
+                        @media only screen
                         and ( min-width: $MQ_DESCTOP_NARROW + 1 )
                         and ( max-width: $MQ_DESCTOP_MODERN )
                         {
                                 @content;
                         }
                 } @else if $size == wide {
-                        @media screen
+                        @media only screen
                         and ( min-width: $MQ_DESCTOP_MODERN + 1 )
                         and ( max-width: $MQ_DESCTOP_WIDE )
                         {
                                 @content;
                         }
                 } @else if $size == hd {
-                        @media screen
+                        @media only screen
                         and ( min-width: $MQ_DESCTOP_WIDE + 1 )
                         and ( max-width: $MQ_DESCTOP_HD )
                         {
                                 @content;
                         }
                 } @else if $size == over {
-                        @media screen
+                        @media only screen
                         and ( min-width: $MQ_DESCTOP_HD + 1 )
                         {
                                 @content;
@@ -534,18 +559,18 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 @each $prefix in $MQ_PREFIX_TYPES
                 {
                         @if $size == modern {
-                                @media screen
+                                @media only screen
                                 and ( min-width: $MQ_DESCTOP_NARROW + 1 )
                                 and ( max-width: $MQ_FUTURE_DESCTOP_MODERN )
-                                and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
+                                and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_FUTURE_DESCTOP_PXRATIO ) )
                                 {
                                         @content;
                                 }
                         } @else if $size == wide {
-                                @media screen
+                                @media only screen
                                 and ( min-width: $MQ_FUTURE_DESCTOP_MODERN + 1 )
                                 and ( max-width: $MQ_FUTURE_DESCTOP_WIDE )
-                                and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
+                                and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_FUTURE_DESCTOP_PXRATIO ) )
                                 {
                                         @content;
                                 }
@@ -553,35 +578,35 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 }
         } @else if $version == any {
                 @if $size == narrow {
-                        @media screen
+                        @media only screen
                         and ( min-width: $MQ_OLD_TABLET_LANDSCAPE )
                         and ( max-width: $MQ_DESCTOP_NARROW )
                         {
                                 @content;
                         }
                 } @else if $size == modern {
-                        @media screen
+                        @media only screen
                         and ( min-width: $MQ_DESCTOP_NARROW + 1 )
                         and ( max-width: $MQ_DESCTOP_MODERN )
                         {
                                 @content;
                         }
                 } @else if $size == wide {
-                        @media screen
+                        @media only screen
                         and ( min-width: $MQ_DESCTOP_MODERN + 1 )
                         and ( max-width: $MQ_DESCTOP_WIDE )
                         {
                                 @content;
                         }
                 } @else if $size == hd {
-                        @media screen
+                        @media only screen
                         and ( min-width: $MQ_DESCTOP_WIDE + 1 )
                         and ( max-width: $MQ_DESCTOP_HD )
                         {
                                 @content;
                         }
                 } @else if $size == over {
-                        @media screen
+                        @media only screen
                         and ( min-width: $MQ_DESCTOP_HD + 1 )
                         {
                                 @content;
@@ -590,18 +615,18 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 @each $prefix in $MQ_PREFIX_TYPES
                 {
                         @if $size == modern {
-                                @media screen
+                                @media only screen
                                 and ( min-width: $MQ_DESCTOP_NARROW + 1 )
                                 and ( max-width: $MQ_FUTURE_DESCTOP_MODERN )
-                                and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
+                                and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_FUTURE_DESCTOP_PXRATIO ) )
                                 {
                                         @content;
                                 }
                         } @else if $size == wide {
-                                @media screen
+                                @media only screen
                                 and ( min-width: $MQ_FUTURE_DESCTOP_MODERN + 1 )
                                 and ( max-width: $MQ_FUTURE_DESCTOP_WIDE )
-                                and ( #{$prefix}min-device-pixel-ratio: $MQ_FUTURE_DESCTOP_PXRATIO )
+                                and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $MQ_FUTURE_DESCTOP_PXRATIO ) )
                                 {
                                         @content;
                                 }
@@ -625,19 +650,19 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 @each $prefix in $MQ_PREFIX_TYPES
                 {
                         @if $orientation {
-                                @media screen
+                                @media only screen
                                 and ( min-width: $min_width )
                                 and ( max-width: $max_width )
-                                and ( #{$prefix}min-device-pixel-ratio: $pixel_ratio )
+                                and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $pixel_ratio ) )
                                 and ( orientation: $orientation )
                                 {
                                         @content;
                                 }
                         } @else {
-                                @media screen
+                                @media only screen
                                 and ( min-width: $min_width )
                                 and ( max-width: $max_width )
-                                and ( #{$prefix}min-device-pixel-ratio: $pixel_ratio )
+                                and ( #{$prefix}min-device-pixel-ratio: set_temp_pxratio( $prefix, $pixel_ratio ) )
                                 {
                                         @content;
                                 }
@@ -645,7 +670,7 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                 }
         } @else {
                 @if $orientation {
-                        @media screen
+                        @media only screen
                         and ( min-width: $min_width )
                         and ( max-width: $max_width )
                         and ( orientation: $orientation )
@@ -653,7 +678,7 @@ $MQ_PREFIX_TYPES                : -webkit-, -moz-, -ms-, -o-, '' !default;
                                 @content;
                         }
                 } @else {
-                        @media screen
+                        @media only screen
                         and ( min-width: $min_width )
                         and ( max-width: $max_width )
                         {

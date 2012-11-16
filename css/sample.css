@@ -108,9 +108,9 @@ input, select {
  * SCSS Media Queries Mixins
  * 
  * Aauthor   : Ryuichi Nonaka
- * Version   : 3.0
+ * Version   : 0.4.0
  * Copyright : 2012 Ryuichi Nonaka
- * Date      : 2012/11/08
+ * Date      : 2012/11/16
  *
  * Released under the MIT license
  *
@@ -125,6 +125,14 @@ input, select {
  *
  * Browser Prefix 
  * Initialize variables
+ *
+ *********************************** */
+/* ************************************
+ *
+ * Return ratio
+ * Initialize variables
+ * @param $prefix prefix type
+ * @param $ratio device ratio
  *
  *********************************** */
 /* ************************************
@@ -183,11 +191,11 @@ input, select {
  *********************************** */
 /* line 18, ../scss/sample.scss */
 html {
-  padding: 20%;
+  padding: 21%;
   font-weight: bold;
   background: #000;
 }
-@media screen and (min-width: 0) and (max-width: 320px) and (-webkit-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 0) and (max-width: 320px) and (-webkit-max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #222;
@@ -198,7 +206,7 @@ html {
     content: 'mobile portrait old';
   }
 }
-@media screen and (min-width: 0) and (max-width: 320px) and (-moz-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 0) and (max-width: 320px) and (-moz-max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #222;
@@ -209,7 +217,7 @@ html {
     content: 'mobile portrait old';
   }
 }
-@media screen and (min-width: 0) and (max-width: 320px) and (-ms-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 0) and (max-width: 320px) and (-o-max-device-pixel-ratio: 2 / 2) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #222;
@@ -220,7 +228,7 @@ html {
     content: 'mobile portrait old';
   }
 }
-@media screen and (min-width: 0) and (max-width: 320px) and (-o-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 0) and (max-width: 320px) and (-ms-max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #222;
@@ -231,7 +239,7 @@ html {
     content: 'mobile portrait old';
   }
 }
-@media screen and (min-width: 0) and (max-width: 320px) and (max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 0) and (max-width: 320px) and (max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #222;
@@ -242,7 +250,7 @@ html {
     content: 'mobile portrait old';
   }
 }
-@media screen and (min-width: 321px) and (max-width: 480px) and (-webkit-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 321px) and (max-width: 480px) and (-webkit-max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #444;
@@ -253,7 +261,7 @@ html {
     content: 'mobile landscape old';
   }
 }
-@media screen and (min-width: 321px) and (max-width: 480px) and (-moz-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 321px) and (max-width: 480px) and (-moz-max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #444;
@@ -264,7 +272,7 @@ html {
     content: 'mobile landscape old';
   }
 }
-@media screen and (min-width: 321px) and (max-width: 480px) and (-ms-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 321px) and (max-width: 480px) and (-o-max-device-pixel-ratio: 2 / 2) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #444;
@@ -275,7 +283,7 @@ html {
     content: 'mobile landscape old';
   }
 }
-@media screen and (min-width: 321px) and (max-width: 480px) and (-o-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 321px) and (max-width: 480px) and (-ms-max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #444;
@@ -286,7 +294,7 @@ html {
     content: 'mobile landscape old';
   }
 }
-@media screen and (min-width: 321px) and (max-width: 480px) and (max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 321px) and (max-width: 480px) and (max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #444;
@@ -297,7 +305,7 @@ html {
     content: 'mobile landscape old';
   }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) and (-webkit-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 481px) and (max-width: 768px) and (-webkit-max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #666;
@@ -308,7 +316,7 @@ html {
     content: 'tablet portrait old';
   }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) and (-moz-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 481px) and (max-width: 768px) and (-moz-max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #666;
@@ -319,7 +327,7 @@ html {
     content: 'tablet portrait old';
   }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) and (-ms-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 481px) and (max-width: 768px) and (-o-max-device-pixel-ratio: 2 / 2) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #666;
@@ -330,7 +338,7 @@ html {
     content: 'tablet portrait old';
   }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) and (-o-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 481px) and (max-width: 768px) and (-ms-max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #666;
@@ -341,7 +349,7 @@ html {
     content: 'tablet portrait old';
   }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) and (max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 481px) and (max-width: 768px) and (max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #666;
@@ -352,7 +360,7 @@ html {
     content: 'tablet portrait old';
   }
 }
-@media screen and (min-width: 769px) and (max-width: 1024px) and (-webkit-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) and (-webkit-max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #888;
@@ -363,7 +371,7 @@ html {
     content: 'tablet landscape old';
   }
 }
-@media screen and (min-width: 769px) and (max-width: 1024px) and (-moz-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) and (-moz-max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #888;
@@ -374,7 +382,7 @@ html {
     content: 'tablet landscape old';
   }
 }
-@media screen and (min-width: 769px) and (max-width: 1024px) and (-ms-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) and (-o-max-device-pixel-ratio: 2 / 2) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #888;
@@ -385,7 +393,7 @@ html {
     content: 'tablet landscape old';
   }
 }
-@media screen and (min-width: 769px) and (max-width: 1024px) and (-o-max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) and (-ms-max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #888;
@@ -396,7 +404,7 @@ html {
     content: 'tablet landscape old';
   }
 }
-@media screen and (min-width: 769px) and (max-width: 1024px) and (max-device-pixel-ratio: 1) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) and (max-device-pixel-ratio: 1) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #888;
@@ -407,7 +415,7 @@ html {
     content: 'tablet landscape old';
   }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5) {
+@media only screen and (min-width: 481px) and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #777;
@@ -418,7 +426,7 @@ html {
     content: 'tablet landscape modern';
   }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) and (-moz-min-device-pixel-ratio: 1.5) {
+@media only screen and (min-width: 481px) and (max-width: 768px) and (-moz-min-device-pixel-ratio: 1.5) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #777;
@@ -429,7 +437,7 @@ html {
     content: 'tablet landscape modern';
   }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) and (-ms-min-device-pixel-ratio: 1.5) {
+@media only screen and (min-width: 481px) and (max-width: 768px) and (-o-min-device-pixel-ratio: 3 / 2) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #777;
@@ -440,7 +448,7 @@ html {
     content: 'tablet landscape modern';
   }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) and (-o-min-device-pixel-ratio: 1.5) {
+@media only screen and (min-width: 481px) and (max-width: 768px) and (-ms-min-device-pixel-ratio: 1.5) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #777;
@@ -451,7 +459,7 @@ html {
     content: 'tablet landscape modern';
   }
 }
-@media screen and (min-width: 481px) and (max-width: 768px) and (min-device-pixel-ratio: 1.5) {
+@media only screen and (min-width: 481px) and (max-width: 768px) and (min-device-pixel-ratio: 1.5) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #777;
@@ -462,7 +470,7 @@ html {
     content: 'tablet landscape modern';
   }
 }
-@media screen and (min-width: 769px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #666;
@@ -473,7 +481,7 @@ html {
     content: 'tablet landscape modern';
   }
 }
-@media screen and (min-width: 769px) and (max-width: 1024px) and (-moz-min-device-pixel-ratio: 1.5) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) and (-moz-min-device-pixel-ratio: 1.5) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #666;
@@ -484,7 +492,7 @@ html {
     content: 'tablet landscape modern';
   }
 }
-@media screen and (min-width: 769px) and (max-width: 1024px) and (-ms-min-device-pixel-ratio: 1.5) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 3 / 2) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #666;
@@ -495,7 +503,7 @@ html {
     content: 'tablet landscape modern';
   }
 }
-@media screen and (min-width: 769px) and (max-width: 1024px) and (-o-min-device-pixel-ratio: 1.5) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) and (-ms-min-device-pixel-ratio: 1.5) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #666;
@@ -506,7 +514,7 @@ html {
     content: 'tablet landscape modern';
   }
 }
-@media screen and (min-width: 769px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) and (min-device-pixel-ratio: 1.5) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #666;
@@ -517,7 +525,7 @@ html {
     content: 'tablet landscape modern';
   }
 }
-@media screen and (min-width: 1025px) and (max-width: 1280px) {
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #aaa;
@@ -527,7 +535,7 @@ html {
     content: 'desctop modern';
   }
 }
-@media screen and (min-width: 1281px) and (max-width: 1600px) {
+@media only screen and (min-width: 1281px) and (max-width: 1600px) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #ccc;
@@ -537,7 +545,7 @@ html {
     content: 'desctop wide';
   }
 }
-@media screen and (min-width: 1601px) and (max-width: 1920px) {
+@media only screen and (min-width: 1601px) and (max-width: 1920px) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #eee;
@@ -547,7 +555,7 @@ html {
     content: 'desctop hd';
   }
 }
-@media screen and (min-width: 1921px) {
+@media only screen and (min-width: 1921px) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #cc0000;
@@ -558,7 +566,7 @@ html {
     content: 'desctop over';
   }
 }
-@media screen and (min-width: 300px) and (max-width: 600px) {
+@media only screen and (min-width: 300px) and (max-width: 600px) {
   /* line 18, ../scss/sample.scss */
   html {
     background: #00cc00;
